@@ -1,9 +1,10 @@
 const express=require("express");
 const app =express();
-const mongoose=require("mongoose")
+const mongoose=require("mongoose");
+require('./config/passport');
 
 app.set("view engine","ejs");
-app.use(express.jason());
+app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
 mongoose.connect("mongodb://127.0.0.1:27017/coffee")
@@ -14,7 +15,6 @@ console.log(e);
 }
 
 );
-
 app.listen(3000,()=>{
-console.log("正在聆聽3000!");
+console.log("正在聆聽3000");
 });
