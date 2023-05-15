@@ -1,6 +1,7 @@
 const express=require("express");
 const app =express();
 const mongoose=require("mongoose");
+const passportrouter = require('')
 require('./config/passport');
 
 app.set("view engine","ejs");
