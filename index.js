@@ -1,7 +1,10 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express=require("express");
 const app =express();
 const mongoose=require("mongoose");
-const passportrouter = require('')
+const authRoutes = require('./routes/auth_routes');
+const passport = require("passport");
 require('./config/passport');
 
 app.set("view engine","ejs");
@@ -14,8 +17,17 @@ console.log("成功連接coffee資料庫");
 }).catch((e)=>{
 console.log(e);
 }
-
 );
-app.listen(3000,()=>{
-console.log("正在聆聽3000");
+
+// 設定routes
+app.use("/auth", authRoutes);
+
+app.get("/",(req,res)=>{
+return res.render('index');
+});
+
+
+
+app.listen(8080,()=>{
+console.log("正在聆聽8080");
 });

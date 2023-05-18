@@ -6,7 +6,7 @@ passport.use(
     new GoogleStrategy({
         clientID: process.env['GOOGLE_CLIENT_ID'],
         clientSecret: process.env['GOOGLE_CLIENT_SECRET'],
-        callbackURL: 'https://www.example.com/oauth2/redirect/google',
+        callbackURL: 'http://localhost:8080/auth/google/rederect',
         },
       (accessToken,refreshToken,profile,done)=>{
 
