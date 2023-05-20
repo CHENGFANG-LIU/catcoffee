@@ -29,5 +29,5 @@ return res.render('index');
 
 
 app.listen(8080,()=>{
-console.log("正在聆聽8080");
+console.log("localhost:8080");
 });

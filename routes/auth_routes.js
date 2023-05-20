@@ -10,12 +10,19 @@ router.get("/login", (req, res) => {
     return res.render("login", { user: req.user });
   });
 
-router.get("/google",(req,res)=>{
+router.get("/google",
 passport.authenticate("google",{
   scope:['profile','email'],
   prompt:'select_account',
-});
-});
+})
+);
+
+
+router.get("/google/rederect",passport.authenticate(
+  'google',(req,res)=>{
+return res.redirect('/profile');
+  }
+));
 
 
 
